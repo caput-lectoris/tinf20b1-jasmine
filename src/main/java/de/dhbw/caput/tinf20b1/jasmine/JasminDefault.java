@@ -3,7 +3,7 @@ package de.dhbw.caput.tinf20b1.jasmine;
 public class JasminDefault {
 	
 	private final JasminClass CLASS;
-	public final JasminMethodBody BODY;
+	public final JasminMethod MAIN_METHOD;
 	
 	public JasminDefault( ){
 		this( "GeneratedBytecode" );
@@ -18,10 +18,10 @@ public class JasminDefault {
 				"V",
 				JvmModifier.PUBLIC,
 				JvmModifier.STATIC );
-		BODY = new JasminMethodBody( );
+		JasminMethodBody body = new JasminMethodBody( );
 		
 		CLASS = new JasminClass( JvmModifier.PUBLIC, className );
-		CLASS.addMethod( declaration, BODY );
+		MAIN_METHOD = CLASS.addMethod( declaration, body );
 	}
 	
 	@Override

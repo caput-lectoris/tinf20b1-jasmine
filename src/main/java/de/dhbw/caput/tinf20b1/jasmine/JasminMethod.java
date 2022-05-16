@@ -5,9 +5,8 @@ import java.util.Optional;
 public class JasminMethod {
 	
 	private final JasminMethodDeclaration DECLARATION;
-	private final JasminMethodBody BODY;
+	public final JasminMethodBody BODY;
 	private Optional<Integer> stackLimit, localsLimit;
-//	private int stackLimit, localsLimit;
 	
 	public JasminMethod( JasminMethodDeclaration declaration, JasminMethodBody body ){
 		super( );
@@ -31,12 +30,10 @@ public class JasminMethod {
 	private String limits( ){
 		StringBuilder builder = new StringBuilder( );
 		if( stackLimit.isPresent() ){
-			builder.append( "  .limit stack " );
-			builder.append( stackLimit.get() );
+			builder.append( String.format("  .limit stack %d%n", stackLimit.get()) );
 		}
 		if( localsLimit.isPresent() ){
-			builder.append( "  .limit locals " );
-			builder.append( localsLimit.get() );
+			builder.append( String.format("  .limit locals %d%n", localsLimit.get()) );
 		}
 		return builder.toString();
 	}
